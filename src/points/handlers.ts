@@ -3,6 +3,9 @@ import { Request, Response } from "express";
 import { PointsResponse } from "./responses";
 import { getReceiptPointsService } from "./services";
 
+/*
+  GET handler for getting points per receipt ID back
+*/
 export async function getReceiptPoints(req: Request, res: Response) {
   if (!req || !req.params || !req.params.receiptId) {
     res.status(400).json({error: "missing required parameters"})

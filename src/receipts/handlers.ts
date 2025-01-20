@@ -5,6 +5,11 @@ import { createReceipt } from "./services";
 
 import { generateReceiptPointsService } from '../points/services'
 
+/*
+  POST handler for processing receipts
+  - creates the receipt and its ID
+  - generates and stores the points associated with that receipt
+*/
 export async function processReceipts(req: Request, res: Response) {
   let receipt;
   try {

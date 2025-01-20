@@ -4,6 +4,12 @@ import { POINTS_MAP } from "../points/dataStore";
 const DAY_REGEX = /\d{4}-\d{2}-(\d{2})/;
 const TIME_REGEX = /(\d{2}):(\d{2})/;
 
+/*
+  gets the points associated with a receipt ID
+  @param receiptId: uuid representing the receipt in question
+  @returns: the number of points for the receiptId
+  @throws: an error if the receiptId is not in the POINTS_MAP
+*/
 export function getReceiptPointsService(receiptId: string): number {
   if (!POINTS_MAP.has(receiptId)) {
     throw new Error("receipt ID not found in data store");
@@ -11,6 +17,11 @@ export function getReceiptPointsService(receiptId: string): number {
   return POINTS_MAP.get(receiptId);
 }
 
+/*
+  generates the receipt points and writes it to the map storing receiptID -> points
+  @param id: uuid of a receipt
+  @param payload: the receipt metadata used to determine number of points
+*/
 export function generateReceiptPointsService(id: string, payload: Receipt) {
   let points = 0;
 
