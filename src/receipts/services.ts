@@ -7,7 +7,7 @@ import { RECEIPT_MAP } from "./dataStore";
   @payload: the receipt metadata
   @returns: the id of the receipt
 */
-export function createReceipt(payload: Receipt): string {
+export function createReceiptService(payload: Receipt): string {
   // TODO: add validation
   const id = uuidv4();
   RECEIPT_MAP.set(id, payload);

@@ -1,7 +1,7 @@
 import {Request, Response } from "express";
 
 import { ReceiptSchema, ReceiptsResponse } from "./types";
-import { createReceipt } from "./services";
+import { createReceiptService } from "./services";
 
 import { generateReceiptPointsService } from '../points/services'
 
@@ -19,7 +19,7 @@ export async function processReceipts(req: Request, res: Response) {
     return;
   }
 
-  const id = createReceipt(receipt);
+  const id = createReceiptService(receipt);
   generateReceiptPointsService(id, receipt);
   res.status(200).json({ id: id } as ReceiptsResponse);
 };
