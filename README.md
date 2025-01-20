@@ -33,10 +33,12 @@ The general structure will be similar to how I would structure a repo in golang.
   optimization I would probably delegate that via a go-routine OR (more likely)
   send to an asynchronous worker to process.
 - I am assuming that we have confidence in the system that we only receive a
-  given receipt once. If that assumption is not true, I would find a way to
-  build a deterministic hash and to store a SET that stores those values. If the
-  hash in that set already, reject with a 409 CONFLICT code. Else, continue with
-  the existing logic we have.
+  given receipt once. If that assumption is not true, I would build a
+  deterministic hash and use a SET to stores those values. If the hash is in
+  that set already, reject with a 409 CONFLICT code. Else, continue with the
+  existing logic we have.
+  - note: if we were concerned about clashes, I would've also preferred a UUID5
+    instead of UUID4 so we could make the UUID deterministically.
 - Assuming we don't have the need to go to bigdecimal or some other instense
   precision metric for points calculation when dealing with price. If so, would
   use `import { Decimal } from 'decimal.js'`;
