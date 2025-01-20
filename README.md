@@ -9,6 +9,9 @@ to fetch points associated with a given receipt ID
 ```
 # assuming you are in repo at the root node
 docker build -t receipt-processor-app .
+docker run -d -p 8080:8080 receipt-processor-app
+
+# From there you can  use the postman collection included to do the POST and then the GET
 ```
 
 ## Notes
@@ -25,10 +28,6 @@ The general structure will be similar to how I would structure a repo in golang.
 
 ## Assumptions
 
-- While the assessment leads me to think the GET is meant to retrieve points at
-  real time, intuitively to me it'd be better to store the points since we own
-  the rules that calculate points. Thus, I chose to store the points on POST
-  instead of on GET.
 - For the sake of the assignment I will be doing a write synchronously of the
   points, however if the rules engine were more complex or there was need for
   optimization I would probably delegate that via a go-routine OR (more likely)
