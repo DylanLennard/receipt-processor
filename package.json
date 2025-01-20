@@ -1,0 +1,24 @@
+{
+  "name": "fetch-take-home",
+  "version": "1.0.0",
+  "description": "This is an example service written in golang meant to showcase the ability to make two endpoints: one responsible for writing a receipt to a datastore via POST request, and one to fetch points associated with a given receipt ID",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/app.js",
+    "dev": "ts-node src/app.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.21.2",
+    "uuid": "^11.0.5",
+    "zod": "^3.24.1"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.0",
+    "@types/node": "^22.10.7",
+    "typescript": "^5.7.3"
+  }
+}

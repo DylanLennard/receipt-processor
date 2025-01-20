@@ -1,0 +1,1 @@
+export const RECEIPT_MAP = new Map(); // key: receipt_ID, value: body without transformation
